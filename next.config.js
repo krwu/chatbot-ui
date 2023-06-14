@@ -4,11 +4,10 @@ const { i18n } = require('./next-i18next.config');
 const nextConfig = {
   i18n,
   reactStrictMode: true,
-
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
   webpack(config, { isServer, dev }) {
-    config.eslint = {
-      ignoreDuringBuilds: true
-    };
     config.experiments = {
       asyncWebAssembly: true,
       layers: true,
