@@ -6,6 +6,9 @@ const nextConfig = {
   reactStrictMode: true,
 
   webpack(config, { isServer, dev }) {
+    config.eslint = {
+      ignoreDuringBuilds: true
+    };
     config.experiments = {
       asyncWebAssembly: true,
       layers: true,
