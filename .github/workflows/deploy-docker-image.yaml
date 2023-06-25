@@ -19,9 +19,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
+      - name:  Checkout
         uses: actions/checkout@v3
-
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
       
@@ -43,4 +42,6 @@ jobs:
           context: .
           platforms: "linux/amd64,linux/arm64"
           push: true
-          tags: ${{ env.IMAGE_NAME }}:main
+          tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:main
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
